@@ -1,6 +1,6 @@
 use crate::models::CUser;
 use crate::util::TeosLogger;
-use crate::{get_sql_client, user, TEOS};
+use crate::{get_sql_client, user, ETERNAL_NEXUS}; // Updated reference
 use byteorder::{BigEndian, ByteOrder, LittleEndian};
 use std::sync::Arc;
 use std::time::Duration;
@@ -94,8 +94,8 @@ pub extern "stdcall" fn send_summon_request(user: *mut CUser, target: *mut CUser
 /// * `user`    - The loaded character instance.
 pub extern "stdcall" fn on_user_connect(user: *mut CUser) {
     let char = unsafe { user.as_ref().unwrap() };
-    let mut teos = TEOS.lock().unwrap();
-    teos.log(format!("user={:#?}", char));
+    let mut eternal_nexus = ETERNAL_NEXUS.lock().unwrap(); // Updated reference
+    eternal_nexus.log(format!("user={:#?}", char));
 }
 
 /// Gets executed when the server receives a packet from the user. If this function returns
@@ -110,8 +110,8 @@ pub extern "stdcall" fn on_user_recv_packet(user: *mut CUser, packet: *mut u8) -
         let payload = data.as_slice();
 
         let opcode = LittleEndian::read_u16(payload);
-        let mut teos = TEOS.lock().unwrap();
-        teos.log(format!("recv opcode {:#X}", opcode));
+        let mut eternal_nexus = ETERNAL_NEXUS.lock().unwrap(); // Updated reference
+        eternal_nexus.log(format!("recv opcode {:#X}", opcode));
         if opcode == 0x030A || opcode == 0x0309 || opcode == 0x0308 {
             return true;
         }
@@ -125,8 +125,8 @@ pub extern "stdcall" fn on_user_recv_packet(user: *mut CUser, packet: *mut u8) -
 /// # Arguments
 /// * `user`    - The user instance.
 pub extern "stdcall" fn send_character_list(user: *const CUser) -> bool {
-    let mut teos = TEOS.lock().unwrap();
-    let rt = &teos.runtime;
+    let mut eternal_nexus = ETERNAL_NEXUS.lock().unwrap();
+    let rt = &eternal_nexus.runtime;
     let user = unsafe { user.as_ref().unwrap() };
 
     rt.spawn(async move {

@@ -1,9 +1,8 @@
 use crate::models::{CObjectConnection, SConnection, CItem, StBillingItemInfo, SSyncList, CSkill, ActionBarItem, CQuest, SNode, StTarget, StDamage, CNpc, CExchange, CExchangePvp, CParty, CGuild, CGuildCreate, CMinigame, CFriend, SVector, RtCriticalSection, CUserCrypto};
 use crate::util::types::FixedLengthArray;
-
-/// Represents the CUser player structure in the Shaiya server. We should aim to refactor these field
 /// names to be a bit more legible - for now they mirror that of the Ep4 PDB.
-#[repr(C, packed)]
+
+/// Represents the CUser player structure in the ETERNAL NEXUS server. 
 #[derive(Debug)]
 pub struct CUser {
     pub connection: CObjectConnection,
@@ -152,6 +151,8 @@ pub struct CUser {
     pub billing_id: i32,
     pub server_db_id: u32,
     pub username: FixedLengthArray<32>,
+    pub nft_ownership: Vec<u32>, // List of owned NFT IDs
+    pub eterna_token_balance: u64, // Balance of Eterna Token
 }
 
 unsafe impl Sync for CUser {}
@@ -284,6 +285,8 @@ pub struct StAdminInfo {
 }
 
 impl CUser {
+    // Existing methods...
+
     /// Get the character name of the user.
     pub fn name(&self) -> String {
         let name = self.info.name.as_string();

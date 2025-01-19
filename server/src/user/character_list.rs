@@ -1,7 +1,7 @@
 use crate::models;
 use crate::models::{packets, CUser};
 use crate::util::types::FixedLengthArray;
-use crate::TEOS;
+use crate::ETERNAL_NEXUS; 
 use tiberius::{Client, Result, Row};
 use tokio::net::TcpStream;
 use tokio_util::compat::Compat;

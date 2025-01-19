@@ -1,5 +1,21 @@
 pub mod packets;
 
+#[derive(Debug, Clone)]
+pub struct NFT {
+    pub id: u32,
+    pub owner: Pubkey,
+    pub metadata: String,
+    pub rarity: String,
+}
+
+#[derive(Debug, Clone)]
+pub struct UserTransaction {
+    pub user_id: Pubkey,
+    pub nft_id: u32,
+    pub transaction_type: String, // "mint" or "trade"
+    pub timestamp: u64,
+}
+
 mod action_bar;
 pub use action_bar::*;
 

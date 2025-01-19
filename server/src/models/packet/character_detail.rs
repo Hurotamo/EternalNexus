@@ -21,14 +21,20 @@ pub struct CharacterDetails {
     pub deaths: u32,
     pub victories: u32,
     pub defeats: u32,
-    pub guild_name: FixedLengthArray<25>
+    pub guild_name: FixedLengthArray<25>,
+    
+    // New fields for NFT ownership and Eterna Token balance
+    pub nft_ownership: Vec<u32>, // List of owned NFT IDs
+    pub eterna_token_balance: u64, // Balance of Eterna Tokens
 }
 
 impl CharacterDetails {
-    /// Default initialises the packet.
+    /// Default initializes the packet.
     pub fn new() -> Self {
         Self {
             opcode: 0x0105,
+            nft_ownership: Vec::new(),
+            eterna_token_balance: 0,
             ..Default::default()
         }
     }

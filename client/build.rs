@@ -2,7 +2,7 @@ use std::process::Command;
 use std::fs::File;
 use std::io::Write;
 
-/// The entry point for the Teos build script, which runs some additional code
+/// The entry point for the ETERNAL NEXUS build script, which runs some additional code
 /// before building the DLL. This includes modifying the assembly of the `game` binary.
 fn main() {
     // Set the GIT_HASH environment variable

@@ -1,18 +1,12 @@
-// Constants for stat point allocation
-const STATPOINT_ALLOC_QTY: u32 = 10; // Number of stat points to allocate when holding down shift
+pub const STATPOINT_ALLOC_QTY: u32 = 10; // Number of stat points to allocate when holding down shift
+pub const MIN_STATPOINT_ALLOC: u32 = 1; // Minimum number of stat points to allocate
 
-// Function to allocate stat points
-pub fn allocate_stat_points(current_statpoints: u32, is_ctrl_pressed: bool, is_shift_pressed: bool) -> (u32, u32) {
-    let mut allocated_points = 0;
-
-    if is_ctrl_pressed {
-        allocated_points = current_statpoints; // Allocate all available stat points
-    } else if is_shift_pressed {
-        allocated_points = STATPOINT_ALLOC_QTY; // Allocate a fixed number of stat points
-    } else {
-        allocated_points = 1; // Default to allocating one stat point
+pub fn allocate_stat_points(current_points: u32, allocation: u32) -> Result<u32, String> {
+    // Implementation for allocating stat points
+    if allocation < MIN_STATPOINT_ALLOC {
+        return Err("Allocation must be at least 1".to_string());
     }
-
-    let new_statpoints = current_statpoints.saturating_sub(allocated_points); // Prevent underflow
-    (new_statpoints, allocated_points) // Return the new stat points and allocated points
+    Ok(current_points + allocation)
 }
+
+// Additional functions related to stat points can be added here

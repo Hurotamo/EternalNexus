@@ -1,9 +1,21 @@
-// Constant for the login server IP address
+// Constants for the login server IP address and port
 pub const LOGIN_IP_ADDR: &str = "127.0.0.1";
+pub const LOGIN_PORT: u16 = 8080;
 
-// Function to write the login server IP address
-pub fn write_login_ip_addr() -> String {
-    format!("{}", LOGIN_IP_ADDR)
+// Struct to represent the login server configuration
+pub struct LoginServerConfig {
+    pub ip_addr: String,
+    pub port: u16,
 }
 
-// Additional functions for handling login-related functionalities can be added here
+impl LoginServerConfig {
+    // Function to create a new login server configuration
+    pub fn new(ip_addr: String, port: u16) -> Self {
+        LoginServerConfig { ip_addr, port }
+    }
+
+    // Function to write the login server IP address and port
+    pub fn write_login_server_config(&self) -> String {
+        format!("{}:{}", self.ip_addr, self.port)
+    }
+}

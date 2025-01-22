@@ -1,2 +1,2 @@
-nameFunc(0x4D8B90, "getMapNameForId", return_type="bool", args=[("dest","ptr"),("map_id","u16")])
-nameFunc(0x41F1D0, "writeTextToChatBox", return_type="void", args=[("effect_code","u8"),("text","string"),("chat_channel","u8")])
+nameFunc(0x4D8B90, "get_map_name_for_id", return_type="bool", args=[("dest","ptr"),("map_id","u16")])
+nameFunc(0x41F1D0, "write_text_to_chat_box", return_type="void", args=[("effect_code","u8"),("text","string"),("chat_channel","u8")])

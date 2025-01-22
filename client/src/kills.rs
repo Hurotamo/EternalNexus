@@ -8,10 +8,8 @@ const KILL_RANK_TABLE: [u32; 32] = [
 
 // Function to get the player's kill rank
 pub fn get_player_kill_rank(player_kills: u32) -> usize {
-    for (rank, &threshold) in KILL_RANK_TABLE.iter().enumerate() {
-        if player_kills < threshold {
-            return rank; // Return the rank if the player's kills are less than the threshold
-        }
-    }
-    KILL_RANK_TABLE.len() - 1 // Return the highest rank if the player's kills exceed all thresholds
+    KILL_RANK_TABLE
+        .iter()
+        .position(|&threshold| player_kills < threshold)
+        .unwrap_or(KILL_RANK_TABLE.len() - 1)
 }

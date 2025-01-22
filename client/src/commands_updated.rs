@@ -1,12 +1,12 @@
 pub fn parse_custom_commands(command: &str) {
     match command {
         "/effects on" => {
-            set_effects(true);
+            toggle_effects_primary().unwrap();
             save_config();
             write_client_chat_text("Effects enabled.");
         },
         "/effects off" => {
-            set_effects(false);
+            toggle_effects_secondary().unwrap();
             save_config();
             write_client_chat_text("Effects disabled.");
         },
@@ -42,7 +42,6 @@ fn handle_gfx_command(command: &str) {
 
 fn parse_animation_id(command: &str) -> Option<u32> {
     // Logic to extract animation ID from command
-    // Example: "/anim 1" -> returns Some(1)
     let parts: Vec<&str> = command.split_whitespace().collect();
     if parts.len() == 2 {
         return parts[1].parse::<u32>().ok();
@@ -52,7 +51,6 @@ fn parse_animation_id(command: &str) -> Option<u32> {
 
 fn parse_gfx_ids(command: &str) -> (Option<u32>, Option<u32>) {
     // Logic to extract effect ID and scene ID from command
-    // Example: "/gfx 1 2" -> returns (Some(1), Some(2))
     let parts: Vec<&str> = command.split_whitespace().collect();
     if parts.len() == 3 {
         let effect_id = parts[1].parse::<u32>().ok();
@@ -62,8 +60,16 @@ fn parse_gfx_ids(command: &str) -> (Option<u32>, Option<u32>) {
     (None, None)
 }
 
-fn set_effects(enabled: bool) {
-    // Set effects to enabled or disabled
+fn toggle_effects_primary() -> Result<(), String> {
+    // Call the function to toggle primary effects
+    // Implementation here
+    Ok(())
+}
+
+fn toggle_effects_secondary() -> Result<(), String> {
+    // Call the function to toggle secondary effects
+    // Implementation here
+    Ok(())
 }
 
 fn play_animation(id: u32) {

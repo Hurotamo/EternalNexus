@@ -1,19 +1,32 @@
-// Function to read a file from the data file
 pub fn read_file(file_path: &str) -> Result<Vec<u8>, String> {
-    // Implementation for reading a file
-    Ok(vec![]) // Placeholder for file data
+    use std::fs::File;
+    use std::io::Read;
+
+    use std::fs::File;
+    use std::io::Read;
+
+    let mut file = match File::open(file_path) {
+        Ok(file) => file,
+        Err(e) => return Err(format!("Failed to open file: {}", e)),
+    };
+
+    let mut data = Vec::new(); 
+    // Read the file contents into the data vector
+    match file.read_to_end(&mut data) { 
+        // Handle the result of reading the file
+        Ok(_) => Ok(data),
+        Err(e) => Err(format!("Failed to read file: {}", e)),
+    }
 }
 
-// Function to read an SData file
 pub fn read_sdata_file(file_path: &str) -> Result<Vec<u8>, String> {
-    // Attempt to read the file
     match read_file(file_path) {
         Ok(data) => {
-            // Check if the file is encrypted and handle accordingly
             if is_encrypted(&data) {
-                // Decrypt the data
-                let decrypted_data = decrypt_data(&data)?;
-                Ok(decrypted_data)
+                match decrypt_data(&data) {
+                    Ok(decrypted_data) => Ok(decrypted_data),
+                    Err(e) => Err(format!("Failed to decrypt data: {}", e)),
+                }
             } else {
                 Ok(data)
             }
@@ -22,14 +35,21 @@ pub fn read_sdata_file(file_path: &str) -> Result<Vec<u8>, String> {
     }
 }
 
-// Function to check if the data is encrypted (stub for demonstration)
-fn is_encrypted(data: &[u8]) -> bool {
+fn is_encrypted(data: &[u8]) -> bool { 
     // Logic to determine if the data is encrypted
-    false
+    // Logic to determine if the data is encrypted
+    // For example, check for a specific magic number
+    data.starts_with(b"ENCRYPTED")
 }
 
-// Function to decrypt data (stub for demonstration)
-fn decrypt_data(data: &[u8]) -> Result<Vec<u8>, String> {
+fn decrypt_data(data: &[u8]) -> Result<Vec<u8>, String> { 
     // Logic to decrypt the data
-    Ok(data.to_vec()) // Placeholder for decrypted data
+    // Logic to decrypt the data
+    // For example, use a simple XOR cipher
+    let key = b"secret_key";
+    let mut decrypted_data = Vec::new();
+    for (i, byte) in data.iter().enumerate() {
+        decrypted_data.push(byte ^ key[i % key.len()]);
+    }
+    Ok(decrypted_data)
 }

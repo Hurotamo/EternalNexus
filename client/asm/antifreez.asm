@@ -1,14 +1,7 @@
-render_skill_icon   equ 0x4A8FD0    ; Renders a skill icon.
-render_buff_retn    equ 0x4C66FD    ; The address to return to after rendering the buff icon.
+window_focused_flag equ 0x771EC4    ; If the window is currently in focus.
+window_focused_retn equ 0x40795E    ; The address to return to.
 
-; Renders the player's own buffs on the screen.
-render_buffs:
-    push 1          ; Skill active state (0 = Greyed out, 1 = Learned)
-    push eax        ; Skill level.
-    push ecx        ; Skill id.
-    push ebx        ; Y position.
-    push ebp        ; X position.
-    push 0xFFFFFFFF ; Opacity
-    mov ecx, edi    ; Skill definition
-    call render_skill_icon
-    jmp render_buff_retn
+; Always flag the window as "focused" regardless of the actual state.
+flag_window_focused:
+    mov byte [window_focused_flag], 1
+    jmp window_focused_retn

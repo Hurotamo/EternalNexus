@@ -1,5 +1,8 @@
-// Function to handle the play effect packet
-pub fn play_effect_packet(packet_payload: &[u8]) {
+pub fn play_effect_packet(packet_payload: &[u8]) -> Result<(), String> {
+    if packet_payload.len() < 8 {
+        return Err("Invalid packet payload length".to_string());
+    }
+
     let player_id = packet_payload[2]; // Extract player ID from the packet
 
     // Get the player by their ID
@@ -9,17 +12,29 @@ pub fn play_effect_packet(packet_payload: &[u8]) {
         let scene = packet_payload[7]; // Extract scene from the packet
         let effect = packet_payload[6]; // Extract effect from the packet
 
-        play_graphical_effect(player_position, scene, effect);
+        // Call to play_graphical_effect with player's position, scene, and effect
+        play_graphical_effect(player_position, scene, effect)?;
+        Ok(())
+    } else {
+        Err("Player not found".to_string())
     }
 }
 
-// Stub for the get_player function
 fn get_player(player_id: u8) -> Option<Player> {
-    // Implementation for retrieving the player by ID
-    None // Placeholder
+    // Retrieve the player by ID using CLIENT_BASE
+    let player_address = CLIENT_BASE + (player_id as usize * std::mem::size_of::<Player>());
+    unsafe {
+        // Assuming a way to dereference the player address
+        let player: &Player = &*(player_address as *const Player);
+        Some(player.clone()) // Return a clone of the player
+    }
 }
 
-// Stub for the play_graphical_effect function
-fn play_graphical_effect(position: Position, scene: u8, effect: u8) {
+fn play_graphical_effect(position: Position, scene: u8, effect: u8) -> Result<(), String> {
     // Implementation for playing the graphical effect
+    // For example:
+    // if let Err(e) = effect.play(position, scene) {
+    //     return Err(e.to_string());
+    // }
+    Ok(())
 }

@@ -17,10 +17,7 @@
 - Earn **Eterna Tokens** by completing quests, winning battles, or crafting.
 - Trade, sell, or rent NFTs in a player-driven marketplace.
 
-### 🌍 Cross-Chain Economy
-- **Core NFTs** unlock exclusive dungeons and quests.
-- **Solana NFTs** offer crafting and trading opportunities.
-- Interoperable assets across both blockchains.
+
 
 ### 🛡️ Guild Wars and Governance
 - Join or form guilds to participate in massive multiplayer battles.

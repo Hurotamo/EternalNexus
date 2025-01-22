@@ -1,6 +1,6 @@
 # 🌀 Eternal Nexus: Chronicles of the Multiverse
 
-**Eternal Nexus** is a blockchain-powered MMORPG that combines the vast potential of the **Solana** and **Core** blockchains. Dive into a multiverse filled with adventure, rare NFT gear, and a thriving player-driven economy. Players can explore dynamic realms, collect and trade unique NFT items, and participate in a play-to-earn ecosystem that redefines gaming.
+**Eternal Nexus** is a blockchain-powered MMORPG that combines the vast potential of the **xxxx** and **xxxx** blockchains. Dive into a multiverse filled with adventure, rare NFT gear, and a thriving player-driven economy. Players can explore dynamic realms, collect and trade unique NFT items, and participate in a play-to-earn ecosystem that redefines gaming.
 
 ---
 

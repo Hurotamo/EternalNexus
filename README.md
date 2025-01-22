@@ -6,10 +6,7 @@
 
 ## 🚀 **Features**
 
-### 🌌 Multiverse Exploration
-- Discover unique realms tied to different blockchain ecosystems:
-  - **Core Realm**: A cyberpunk-themed city showcasing the **Coretoshi Collection** NFTs.
-  - **Solana Realm**: A mystic forest realm with fast, low-cost NFT minting.
+
 
 ### ⚔️ NFT Gear System
 - Collect rare NFT items such as weapons, shields, helmets, gloves, boots, armor, pants, capes, and accessories.

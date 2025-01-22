@@ -1,15 +1,12 @@
 # 🌀 Eternal Nexus: Chronicles of the Multiverse
 
-**Eternal Nexus** is a blockchain-powered MMORPG that combines the vast potential of the **Solana** and **Core** blockchains. Dive into a multiverse filled with adventure, rare NFT gear, and a thriving player-driven economy. Players can explore dynamic realms, collect and trade unique NFT items, and participate in a play-to-earn ecosystem that redefines gaming.
+**Eternal Nexus** is a blockchain-powered MMORPG that combines the vast potential of the **xxxx** and **xxxx** blockchains. Dive into a multiverse filled with adventure, rare NFT gear, and a thriving player-driven economy. Players can explore dynamic realms, collect and trade unique NFT items, and participate in a play-to-earn ecosystem that redefines gaming.
 
 ---
 
 ## 🚀 **Features**
 
-### 🌌 Multiverse Exploration
-- Discover unique realms tied to different blockchain ecosystems:
-  - **Core Realm**: A cyberpunk-themed city showcasing the **Coretoshi Collection** NFTs.
-  - **Solana Realm**: A mystic forest realm with fast, low-cost NFT minting.
+
 
 ### ⚔️ NFT Gear System
 - Collect rare NFT items such as weapons, shields, helmets, gloves, boots, armor, pants, capes, and accessories.
@@ -39,52 +36,4 @@
 
 ---
 
-## 🛠️ **Technology Stack**
 
-| Component               | Technology                             |
-|-------------------------|-----------------------------------------|
-| **Game Engine**         | Unreal Engine / Unity                  |
-| **Blockchain**          | Solana (main chain), Core blockchain   |
-| **NFT Marketplace**     | Solana-powered smart contracts         |
-| **Backend**             | Rust, Anchor framework                 |
-| **Frontend**            | React.js, Web3.js, Solana Wallet Adapter |
-| **Database**            | Arweave/IPFS for decentralized storage |
-| **Hosting**             | AWS, Cloudflare, or decentralized hosting (e.g., Akash) |
-
----
-
-## 🗺️ **Roadmap**
-
-### Phase 1: Conceptualization and Planning
-- Finalize game lore, NFT designs, and tokenomics.
-- Build core mechanics for multiverse exploration and NFT gear system.
-
-### Phase 2: Development
-- Develop the core gameplay mechanics using Unreal Engine or Unity.
-- Implement Solana and Core blockchain integration.
-- Create the NFT marketplace and crafting system.
-
-### Phase 3: Testing and Beta Launch
-- Open closed beta for early adopters.
-- Test cross-chain interoperability and play-to-earn mechanics.
-
-### Phase 4: Full Launch
-- Deploy the game on Solana and Core blockchains.
-- Launch marketing campaigns and partnerships with guilds and NFT communities.
-
----
-
-## 🎮 **Getting Started**
-
-### Prerequisites
-- **Install Wallets**: [Phantom](https://phantom.app) (Solana) and Core blockchain-compatible wallets.
-- **Install Dependencies**:
-  ```bash
-  npm install
-  ```
-
-### Troubleshooting Tips
-- If you encounter issues during installation, ensure that your wallet is properly set up and that you have the latest version of Node.js installed.
-
-### Additional Resources
-- For more information on the technologies used, refer to the official documentation for each component listed in the Technology Stack section.
